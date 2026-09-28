@@ -24,7 +24,6 @@ Never hardcode or save database IDs (not in memory, not in files). Find them by 
 1. `notion-search` the name: `Tasks`, `Projects`, `Notes`. Search usually returns pages and views rather than the database itself, so pick a result that belongs to it: a `database` result with that title, a page whose `path` ends with the name (`… / Databases & Components / Tasks`), or a block titled `View: Tasks`. A task link works too: fetching the task shows its `<parent-data-source>`.
 2. `notion-fetch` that result. A page shows `<parent-data-source url="collection://…" name="Tasks">`; a view or database lists its `<data-source>` with title and schema. Fetch the `collection://` URL to get the full schema.
 3. Confirm by properties: Tasks — `Status` (To Do / Doing / Done), `Project`, `Parent Task`, `Sub-Tasks`, `Labels`, `Snooze`; Projects — a `Tasks` relation; Notes — `Type`, `Project`, `Note Date`. Wrong properties → keep looking.
-4. Fallback: search `Databases & Components` (the Ultimate Brain hub page), fetch it, then fetch the listed databases until the title matches.
 
 Several matching databases → ask the user which one. None → ask for a link. Never create a database.
 

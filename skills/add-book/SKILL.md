@@ -15,7 +15,6 @@ Never hardcode or save database IDs (not in memory, not in files). Find the data
 2. `notion-fetch` that result. A page shows `<parent-data-source url="collection://…" name="Books">`; a view or database lists its `<data-source>` with title and schema. Fetch the `collection://` URL to get the full schema.
 3. Confirm it by its properties: `Title` (title), `Author`, `Publish Year`, `Status`. Wrong properties → keep looking.
 4. Template: fetch the database URL shown next to the data source and take the id of the template named `Book Template` from its `<templates>` list. No such template → create a plain page and say so.
-5. Fallback: search `Databases & Components` (the Ultimate Brain hub page), fetch it, then fetch the listed databases until the title matches.
 
 Several matching databases → ask the user which one. None → ask for a link. Never create a database.
 

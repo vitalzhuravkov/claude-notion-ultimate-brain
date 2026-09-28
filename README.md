@@ -39,7 +39,6 @@ The plugin stores no database IDs. In every chat, a skill finds the databases it
 1. `notion-search` for `Tasks`, `Projects`, `Notes` or `Books`. Notion search returns pages and views rather than the database itself, so the skill picks a result that belongs to the database: a page whose path ends with the name (`… / Databases & Components / Tasks`) or a `View: Tasks` block.
 2. `notion-fetch` on that result reveals the database (`collection://…`) and its full schema.
 3. The schema is checked against what Ultimate Brain has: Tasks — `Status` (To Do / Doing / Done), `Project`, `Parent Task`, `Sub-Tasks`, `Labels`, `Snooze`; Projects — a `Tasks` relation; Notes — `Type`, `Project`, `Note Date`; Books — `Title`, `Author`, `Publish Year` and the `Book Template` page template.
-4. Fallback: the `Databases & Components` hub page of Ultimate Brain, which lists every database.
 
 The found ID is reused until the chat ends and is never saved anywhere. If several databases match, the skill asks which one to use; if none matches, it asks for a link. Skills never create databases.
 

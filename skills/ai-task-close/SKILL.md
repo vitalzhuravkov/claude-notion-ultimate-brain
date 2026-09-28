@@ -13,7 +13,7 @@ Reply to the user, and write everything in Notion, in the language of the user's
 
 - Task link: from the chat's first message (`Run ai-task <URL> …` / `/ai-task <URL>`) or from the command. No link → ask.
 - Tasks: fetching the task shows `<parent-data-source url="collection://…" name="Tasks">`. Needed properties: `Labels` (is `🔬 Deep Research` set?), `Status`, `Completed`, `Project`.
-- Notes: `notion-search` for `Notes`; pick a page whose `path` ends with `Notes` or a block titled `View: Notes`, `notion-fetch` it, take its `collection://` URL and confirm the properties `Name`, `Type`, `Project`, `Note Date`. Fallback: search `Databases & Components`, fetch it, fetch the listed databases until the title matches.
+- Notes: `notion-search` for `Notes`; pick a page whose `path` ends with `Notes` or a block titled `View: Notes`, `notion-fetch` it, take its `collection://` URL and confirm the properties `Name`, `Type`, `Project`, `Note Date`.
 - Never hardcode or save database IDs; reuse what was found in this chat. Several matching databases → ask which one. None → ask for a link. Never create a database.
 - A ✅ block or a report note already exists → ask whether to update; update in place, no duplicates.
 
