@@ -1,0 +1,17 @@
+{
+  "name": "ultimate-brain",
+  "description": "Claude Code plugins for the Ultimate Brain Notion template",
+  "owner": {
+    "name": "Vital Zhuravkov",
+    "url": "https://github.com/vitalzhuravkov"
+  },
+  "plugins": [
+    {
+      "name": "claude-notion-ultimate-brain",
+      "source": ".",
+      "description": "Notion skills for the Ultimate Brain template: capture tasks and books, run and close AI tasks",
+      "category": "productivity",
+      "tags": ["notion", "ultimate-brain", "tasks", "books"]
+    }
+  ]
+}
