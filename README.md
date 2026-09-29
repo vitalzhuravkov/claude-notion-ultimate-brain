@@ -21,7 +21,7 @@ A Claude Code plugin with four Notion skills for the [Ultimate Brain](https://th
   ```
 
   then run `/mcp` inside Claude Code to authenticate.
-- For the AI-task skills: a `Labels` multi-select property on Tasks with the options `🤖 AI` and `🔬 Deep Research`. If your copy of Ultimate Brain does not have it, unlock the Tasks database and add it once. Optionally, a `Research` option in the `Type` property of Notes for Deep Research reports (otherwise `Reference` is used).
+- For `ai-task` and `ai-task-close`: a few additions to Ultimate Brain, see [Set up Ultimate Brain for the AI-task skills](#set-up-ultimate-brain-for-the-ai-task-skills).
 
 ## Installation
 
@@ -31,6 +31,29 @@ A Claude Code plugin with four Notion skills for the [Ultimate Brain](https://th
 ```
 
 The skills are then available as `/claude-notion-ultimate-brain:add-task`, `…:add-book`, `…:ai-task`, `…:ai-task-close`, and trigger automatically on matching requests.
+
+## Set up Ultimate Brain for the AI-task skills
+
+Ultimate Brain does not ship these. Add them once; `add-task` and `add-book` work without them.
+
+1. **Unlock the Tasks database.** Open `Databases & Components` → `Tasks`, click `⋯` → `Unlock database`.
+2. **Add the `Labels` property.** Type: Multi-select. Options: `🤖 AI`, `🔬 Deep Research`.
+3. **Add the `🤖 Claude` button.** Type: Formula. It shows a link only on labelled tasks; clicking it opens a new Claude Cowork session that runs `ai-task` for that task.
+
+   ```
+   if(or(contains(format(Labels), "🤖 AI"), contains(format(Labels), "🔬 Deep Research")), link("Start in 🤖", "https://vitalzhuravkov.github.io/claude-open/?id=" + id() + "&name=" + Name.replaceAll("%", "%25").replaceAll("&", "%26").replaceAll("#", "%23").replaceAll("[+]", "%2B").replaceAll("[?]", "%3F").replaceAll("=", "%3D").replaceAll(" ", "%20")), "")
+   ```
+
+   Notion links cannot open the `claude://` scheme directly, so the link goes through a tiny static page ([claude-open](https://github.com/vitalzhuravkov/claude-open)) that turns the task ID and name into `claude://cowork/new?q=Run ai-task <task> <name>` and opens the Claude desktop app. Use it as is, or host your own copy on GitHub Pages and change the URL in the formula.
+4. **Add the `🤖 AI queue` view.** In Tasks: `+ New view` → Table, name it `🤖 AI queue`.
+   - Filter: `Labels` contains `🤖 AI` **or** `Labels` contains `🔬 Deep Research`; **and** `Status` is not `Done`.
+   - Sort: `Due` ascending.
+   - Properties: `Name`, `Status`, `Labels`, `Due`, `Project`, `Description`, `🤖 Claude`.
+
+   Optionally add it to your dashboard as a linked view (`/linked view of database` → Tasks → `🤖 AI queue`).
+5. **Lock Tasks back:** `⋯` → `Lock database`.
+6. **Notes: add the `Research` type.** Unlock `Notes`, open the `Type` property, add the option `Research`, lock the database. `ai-task-close` saves Deep Research reports with this type; without it, `Reference` is used.
+7. **On the Claude side.** Install the plugin (see Installation), connect the Notion MCP server, and for `🔬 Deep Research` tasks enable Research in the chat before approving the plan.
 
 ## How databases are found
 
