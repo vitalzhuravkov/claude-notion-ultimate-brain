@@ -27,10 +27,10 @@ A Claude Code plugin with four Notion skills for the [Ultimate Brain](https://th
 
 ```
 /plugin marketplace add vitalzhuravkov/claude-notion-ultimate-brain
-/plugin install claude-notion-ultimate-brain@ultimate-brain
+/plugin install notion-ultimate-brain@ultimate-brain
 ```
 
-The skills are then available as `/claude-notion-ultimate-brain:add-task`, `…:add-book`, `…:ai-task`, `…:ai-task-close`, and trigger automatically on matching requests.
+The skills are then available as `/notion-ultimate-brain:add-task`, `…:add-book`, `…:ai-task`, `…:ai-task-close`, and trigger automatically on matching requests.
 
 ## Set up Ultimate Brain for the AI-task skills
 
@@ -75,5 +75,5 @@ Skills reply, and write to Notion, in the language of your request. `add-book` a
 - `Remind me to review the quarterly plan every Monday` · `Напомни каждый понедельник смотреть план на квартал`
 - `Let Claude figure out how dividends are taxed in Poland` → a task labelled `🤖 AI`
 - `Add "Good Strategy Bad Strategy" by Rumelt to my reading list` · `Добавь книгу Хормози «100M Offers»`
-- `Run ai-task <task URL>` · `/claude-notion-ultimate-brain:ai-task <task URL>`
+- `Run ai-task <task URL>` · `/notion-ultimate-brain:ai-task <task URL>`
 - In the task's chat, when the work is done: `close the task` · `закрывай`

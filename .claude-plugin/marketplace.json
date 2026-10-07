@@ -7,8 +7,8 @@
   },
   "plugins": [
     {
-      "name": "claude-notion-ultimate-brain",
-      "source": ".",
+      "name": "notion-ultimate-brain",
+      "source": "./",
       "description": "Notion skills for the Ultimate Brain template: capture tasks and books, run and close AI tasks",
       "category": "productivity",
       "tags": ["notion", "ultimate-brain", "tasks", "books"]
