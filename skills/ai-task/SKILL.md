@@ -1,6 +1,6 @@
 ---
 name: ai-task
-description: Work an AI task from the Notion "Tasks" database of an Ultimate Brain workspace (labelled 🤖 AI or 🔬 Deep Research) in a dedicated chat — context, plan, approval, execution. Does not write conclusions and does not close the task; that is ai-task-close. Use on "Run ai-task <link>", "Run notion-ai-task <link>", "/ai-task <link>", "take this AI task from Notion", "возьми AI-задачу из ноушена", "запусти задачу из ноушена", or a link to such a task.
+description: Work an AI task from the Notion "Tasks" database of an Ultimate Brain workspace (labelled 🤖 AI or 🔬 Deep Research) in a dedicated chat — context, plan, approval, execution. Does not write conclusions and does not close the task; that is ai-task-close. Use on "Run ai-task + link", "Run notion-ai-task + link", "/ai-task + link", "take this AI task from Notion", "возьми AI-задачу из ноушена", "запусти задачу из ноушена", or a link to such a task.
 argument-hint: <task URL or page ID> [task name]
 ---
 
